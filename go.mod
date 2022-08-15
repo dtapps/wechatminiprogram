@@ -3,9 +3,9 @@ module go.dtapp.net/wechatminiprogram
 go 1.19
 
 require (
-	go.dtapp.net/dorm v1.0.17
-	go.dtapp.net/golog v1.0.24
-	go.dtapp.net/gorequest v1.0.26
+	go.dtapp.net/dorm v1.0.27
+	go.dtapp.net/golog v1.0.29
+	go.dtapp.net/gorequest v1.0.27
 	go.dtapp.net/gostorage v1.0.11
 	gorm.io/gorm v1.23.8
 )
@@ -47,6 +47,7 @@ require (
 	github.com/ks3sdklib/aws-sdk-go v1.1.6 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/lib/pq v1.10.6 // indirect
+	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -57,6 +58,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.2 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/qiniu/go-sdk/v7 v7.13.0 // indirect
+	github.com/rs/zerolog v1.27.0 // indirect
 	github.com/saracen/go7z v0.0.0-20191010121135-9c09b6bd7fda // indirect
 	github.com/saracen/solidblock v0.0.0-20190426153529-45df20abab6f // indirect
 	github.com/sirupsen/logrus v1.9.0 // indirect
@@ -77,12 +79,12 @@ require (
 	github.com/xdg-go/scram v1.1.1 // indirect
 	github.com/xdg-go/stringprep v1.0.3 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
-	go.dtapp.net/goip v1.0.24 // indirect
+	go.dtapp.net/goip v1.0.25 // indirect
 	go.dtapp.net/gojson v1.0.1 // indirect
 	go.dtapp.net/gorandom v1.0.1 // indirect
 	go.dtapp.net/gostring v1.0.6 // indirect
 	go.dtapp.net/gotime v1.0.5 // indirect
-	go.dtapp.net/gotrace_id v1.0.0 // indirect
+	go.dtapp.net/gotrace_id v1.0.5 // indirect
 	go.dtapp.net/gourl v1.0.0 // indirect
 	go.dtapp.net/goxml v1.0.1 // indirect
 	go.mongodb.org/mongo-driver v1.10.1 // indirect
@@ -99,8 +101,8 @@ require (
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/datatypes v1.0.7 // indirect
-	gorm.io/driver/mysql v1.3.5 // indirect
-	gorm.io/driver/postgres v1.3.8 // indirect
+	gorm.io/driver/mysql v1.3.6 // indirect
+	gorm.io/driver/postgres v1.3.9 // indirect
 	mellium.im/sasl v0.2.1 // indirect
 	modernc.org/sqlite v1.18.1 // indirect
 	xorm.io/builder v0.3.12 // indirect

@@ -1,9 +1,0 @@
-.env
-.git
-.svn
-.idea
-.vscode
-*.log
-gomod.sh
-aliyun_test.go
-/vendor/
