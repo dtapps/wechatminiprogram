@@ -3,15 +3,15 @@ module go.dtapp.net/wechatminiprogram
 go 1.19
 
 require (
-	go.dtapp.net/dorm v1.0.33
-	go.dtapp.net/golog v1.0.73
+	go.dtapp.net/dorm v1.0.38
+	go.dtapp.net/golog v1.0.88
 	go.dtapp.net/gorequest v1.0.31
 	go.dtapp.net/gostorage v1.0.12
 )
 
 require (
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.5+incompatible // indirect
-	github.com/aws/aws-sdk-go v1.44.98 // indirect
+	github.com/aws/aws-sdk-go v1.44.101 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.16.15 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.4.8 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.17.6 // indirect
@@ -41,7 +41,7 @@ require (
 	github.com/gin-gonic/gin v1.8.1 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
-	github.com/go-playground/validator/v10 v10.11.0 // indirect
+	github.com/go-playground/validator/v10 v10.11.1 // indirect
 	github.com/go-redis/redis/v9 v9.0.0-beta.2 // indirect
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/goccy/go-json v0.9.11 // indirect
@@ -61,7 +61,7 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.15.9 // indirect
+	github.com/klauspost/compress v1.15.10 // indirect
 	github.com/ks3sdklib/aws-sdk-go v1.1.8 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/lib/pq v1.10.7 // indirect
@@ -72,6 +72,8 @@ require (
 	github.com/montanaflynn/stats v0.6.6 // indirect
 	github.com/mozillazg/go-httpheader v0.3.1 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible // indirect
+	github.com/oschwald/geoip2-golang v1.8.0 // indirect
+	github.com/oschwald/maxminddb-golang v1.10.0 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.5 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/qiniu/go-sdk/v7 v7.13.0 // indirect
@@ -97,7 +99,7 @@ require (
 	github.com/xdg-go/scram v1.1.1 // indirect
 	github.com/xdg-go/stringprep v1.0.3 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
-	go.dtapp.net/goip v1.0.30 // indirect
+	go.dtapp.net/goip v1.0.36 // indirect
 	go.dtapp.net/gorandom v1.0.1 // indirect
 	go.dtapp.net/gostring v1.0.10 // indirect
 	go.dtapp.net/gotime v1.0.5 // indirect
@@ -107,18 +109,18 @@ require (
 	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
 	go.uber.org/zap v1.23.0 // indirect
-	golang.org/x/crypto v0.0.0-20220829220503-c86fa9a7ed90 // indirect
+	golang.org/x/crypto v0.0.0-20220919173607-35f4265a4bc0 // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
-	golang.org/x/net v0.0.0-20220909164309-bea034e7d591 // indirect
+	golang.org/x/net v0.0.0-20220920152717-4a395b0a80a1 // indirect
 	golang.org/x/sync v0.0.0-20220907140024-f12130a52804 // indirect
-	golang.org/x/sys v0.0.0-20220913175220-63ea55921009 // indirect
+	golang.org/x/sys v0.0.0-20220919091848-fb04ddd9f9c8 // indirect
 	golang.org/x/text v0.3.7 // indirect
-	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
+	golang.org/x/time v0.0.0-20220920022843-2ce7c2934d45 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gorm.io/driver/mysql v1.3.6 // indirect
-	gorm.io/driver/postgres v1.3.9 // indirect
-	gorm.io/gorm v1.23.8 // indirect
+	gorm.io/driver/postgres v1.3.10 // indirect
+	gorm.io/gorm v1.23.9 // indirect
 	mellium.im/sasl v0.3.0 // indirect
 	modernc.org/sqlite v1.18.1 // indirect
 	xorm.io/builder v0.3.12 // indirect

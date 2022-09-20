@@ -1,7 +1,10 @@
 package wechatminiprogram
 
 const (
-	apiUrl   = "https://api.weixin.qq.com"
-	logTable = "wechatminiprogram"
-	Version  = "1.0.8"
+	apiUrl = "https://api.weixin.qq.com"
+)
+
+const (
+	LogTable = "wechatminiprogram"
+	Version  = "1.0.9"
 )
