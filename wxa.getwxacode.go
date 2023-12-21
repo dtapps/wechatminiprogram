@@ -1,13 +1,11 @@
 package wechatminiprogram
 
 import (
-	"bytes"
 	"context"
-	"encoding/json"
 	"errors"
 	"fmt"
+	"go.dtapp.net/gojson"
 	"go.dtapp.net/gorequest"
-	"go.dtapp.net/gostorage"
 	"net/http"
 )
 
@@ -22,24 +20,26 @@ type WxaGetWxaCodeResult struct {
 	Result WxaGetWxaCodeResponse // 结果
 	Body   []byte                // 内容
 	Http   gorequest.Response    // 请求
-	Err    error                 // 错误
 }
 
-func newWxaGetWxaCodeResult(result WxaGetWxaCodeResponse, body []byte, http gorequest.Response, err error) *WxaGetWxaCodeResult {
-	return &WxaGetWxaCodeResult{Result: result, Body: body, Http: http, Err: err}
+func newWxaGetWxaCodeResult(result WxaGetWxaCodeResponse, body []byte, http gorequest.Response) *WxaGetWxaCodeResult {
+	return &WxaGetWxaCodeResult{Result: result, Body: body, Http: http}
 }
 
 // WxaGetWxaCode 获取小程序码，适用于需要的码数量较少的业务场景。通过该接口生成的小程序码，永久有效，有数量限制
 // https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/qr-code/wxacode.get.html
-func (c *Client) WxaGetWxaCode(ctx context.Context, notMustParams ...gorequest.Params) *WxaGetWxaCodeResult {
+func (c *Client) WxaGetWxaCode(ctx context.Context, notMustParams ...gorequest.Params) (*WxaGetWxaCodeResult, error) {
 	// 参数
 	params := gorequest.NewParamsWith(notMustParams...)
 	// 请求
 	request, err := c.request(ctx, fmt.Sprintf(apiUrl+"/wxa/getwxacode?access_token=%s", c.getAccessToken(ctx)), params, http.MethodPost)
+	if err != nil {
+		return newWxaGetWxaCodeResult(WxaGetWxaCodeResponse{}, request.ResponseBody, request), err
+	}
 	// 定义
 	var response WxaGetWxaCodeResponse
-	err = json.Unmarshal(request.ResponseBody, &response)
-	return newWxaGetWxaCodeResult(response, request.ResponseBody, request, err)
+	err = gojson.Unmarshal(request.ResponseBody, &response)
+	return newWxaGetWxaCodeResult(response, request.ResponseBody, request), err
 }
 
 // ErrcodeInfo 错误描述
@@ -60,9 +60,4 @@ func (resp *WxaGetWxaCodeResult) Check() error {
 		return nil
 	}
 	return errors.New("返回不是二进制图片")
-}
-
-// Update 上传
-func (resp *WxaGetWxaCodeResult) Update(storage *gostorage.AliYun, filePath, fileName string) (gostorage.FileInfo, error) {
-	return storage.PutObject(bytes.NewReader(resp.Body), filePath, fileName)
 }

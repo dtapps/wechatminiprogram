@@ -1,13 +1,11 @@
 package wechatminiprogram
 
 import (
-	"bytes"
 	"context"
-	"encoding/json"
 	"errors"
 	"fmt"
+	"go.dtapp.net/gojson"
 	"go.dtapp.net/gorequest"
-	"go.dtapp.net/gostorage"
 	"net/http"
 )
 
@@ -22,24 +20,26 @@ type WxaGetWxaCodeUnLimitResult struct {
 	Result WxaGetWxaCodeUnLimitResponse // 结果
 	Body   []byte                       // 内容
 	Http   gorequest.Response           // 请求
-	Err    error                        // 错误
 }
 
-func newWxaGetWxaCodeUnLimitResult(result WxaGetWxaCodeUnLimitResponse, body []byte, http gorequest.Response, err error) *WxaGetWxaCodeUnLimitResult {
-	return &WxaGetWxaCodeUnLimitResult{Result: result, Body: body, Http: http, Err: err}
+func newWxaGetWxaCodeUnLimitResult(result WxaGetWxaCodeUnLimitResponse, body []byte, http gorequest.Response) *WxaGetWxaCodeUnLimitResult {
+	return &WxaGetWxaCodeUnLimitResult{Result: result, Body: body, Http: http}
 }
 
 // WxaGetWxaCodeUnLimit 获取小程序码，适用于需要的码数量极多的业务场景。通过该接口生成的小程序码，永久有效，数量暂无限制
 // https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/qr-code/wxacode.getUnlimited.html
-func (c *Client) WxaGetWxaCodeUnLimit(ctx context.Context, notMustParams ...gorequest.Params) *WxaGetWxaCodeUnLimitResult {
+func (c *Client) WxaGetWxaCodeUnLimit(ctx context.Context, notMustParams ...gorequest.Params) (*WxaGetWxaCodeUnLimitResult, error) {
 	// 参数
 	params := gorequest.NewParamsWith(notMustParams...)
 	// 请求
 	request, err := c.request(ctx, fmt.Sprintf(apiUrl+"/wxa/getwxacodeunlimit?access_token=%s", c.getAccessToken(ctx)), params, http.MethodPost)
+	if err != nil {
+		return newWxaGetWxaCodeUnLimitResult(WxaGetWxaCodeUnLimitResponse{}, request.ResponseBody, request), err
+	}
 	// 定义
 	var response WxaGetWxaCodeUnLimitResponse
-	err = json.Unmarshal(request.ResponseBody, &response)
-	return newWxaGetWxaCodeUnLimitResult(response, request.ResponseBody, request, err)
+	err = gojson.Unmarshal(request.ResponseBody, &response)
+	return newWxaGetWxaCodeUnLimitResult(response, request.ResponseBody, request), err
 }
 
 // ErrcodeInfo 错误描述
@@ -62,9 +62,4 @@ func (resp *WxaGetWxaCodeUnLimitResult) Check() error {
 		return nil
 	}
 	return errors.New("返回不是二进制图片")
-}
-
-// Update 上传
-func (resp *WxaGetWxaCodeUnLimitResult) Update(storage *gostorage.AliYun, filePath, fileName string) (gostorage.FileInfo, error) {
-	return storage.PutObject(bytes.NewReader(resp.Body), filePath, fileName)
 }
