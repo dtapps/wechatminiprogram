@@ -1,7 +1,7 @@
 package wechatminiprogram
 
 import (
-	"go.dtapp.net/dorm"
+	"github.com/redis/go-redis/v9"
 	"go.dtapp.net/golog"
 )
 
@@ -25,8 +25,8 @@ type Client struct {
 		selfAccessToken bool   // 自己设置接口调用凭证
 	}
 	cache struct {
-		redisClient             *dorm.RedisClient // 缓存数据库
-		wechatAccessTokenPrefix string            // AccessToken
+		redisClient             *redis.Client // 缓存数据库
+		wechatAccessTokenPrefix string        // AccessToken
 	}
 	gormLog struct {
 		status bool           // 状态

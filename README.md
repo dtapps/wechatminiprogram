@@ -1,8 +1,8 @@
 <h1>
-<a href="https://www.dtapp.net/">Golang wechatminiprogram</a>
+<a href="https://www.dtapp.net/">Golang</a>
 </h1>
 
-📦 Golang wechatminiprogram
+📦 Golang 微信小程序
 
 [comment]: <> (go)
 [![godoc](https://pkg.go.dev/badge/go.dtapp.net/wechatminiprogram?status.svg)](https://pkg.go.dev/go.dtapp.net/wechatminiprogram)
@@ -13,5 +13,5 @@
 #### 安装
 
 ```shell
-go get -v -u go.dtapp.net/wechatminiprogram@v1.0.12
+go get -v -u go.dtapp.net/wechatminiprogram@v1.0.13
 ```

@@ -1,7 +1,7 @@
 package wechatminiprogram
 
 import (
-	"go.dtapp.net/dorm"
+	"github.com/redis/go-redis/v9"
 	"go.dtapp.net/golog"
 )
 
@@ -13,7 +13,7 @@ func (c *Client) ConfigApp(appId, appSecret string) *Client {
 }
 
 // ConfigRedisClient 缓存数据库
-func (c *Client) ConfigRedisClient(client *dorm.RedisClient) {
+func (c *Client) ConfigRedisClient(client *redis.Client) {
 	c.cache.redisClient = client
 }
 
